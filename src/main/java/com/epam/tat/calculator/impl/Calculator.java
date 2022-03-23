@@ -2,9 +2,13 @@ package com.epam.tat.calculator.impl;
 
 import com.epam.tat.calculator.ICalculator;
 
+import java.util.logging.Logger;
+
 import static jdk.nashorn.internal.objects.Global.Infinity;
 
  public class Calculator implements ICalculator {
+     private final static Logger LOGGER =  Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 
     private final int precision;
 
@@ -41,5 +45,8 @@ import static jdk.nashorn.internal.objects.Global.Infinity;
        double precisionMultiplier = Math.pow(10, this.precision);
         return Math.round((a / b) * precisionMultiplier)/ precisionMultiplier;
     }
+     public void printResult (Double a, Double b, String operator, Double result) {
+         System.out.println("if precision = " + precision + ",then " + a + " " + operator + " " + b + " = " + result);
+     }
 
  }
